@@ -26,14 +26,6 @@
 		798FBA492200F9A9009F525E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 798FBA482200F9A9009F525E /* LaunchScreen.storyboard */; };
 		9286DF5225F0DDF300D2F05A /* OpenCVHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9286DF5025F0DDF300D2F05A /* OpenCVHelper.mm */; };
 		9288740B25F107FA009B11FE /* OpenGlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9288740325F107FA009B11FE /* OpenGlHelper.m */; };
-		9288740C25F107FA009B11FE /* LYShaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9288740425F107FA009B11FE /* LYShaderManager.m */; };
-		9288740D25F107FA009B11FE /* FaceDetectionShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 9288740525F107FA009B11FE /* FaceDetectionShader.fsh */; };
-		9288740E25F107FA009B11FE /* FaceTextureShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 9288740625F107FA009B11FE /* FaceTextureShader.fsh */; };
-		9288740F25F107FA009B11FE /* FaceTextureShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 9288740825F107FA009B11FE /* FaceTextureShader.vsh */; };
-		9288741025F107FA009B11FE /* FaceDetectionShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 9288740925F107FA009B11FE /* FaceDetectionShader.vsh */; };
-		9288741525F10828009B11FE /* LYFaceDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9288741425F10828009B11FE /* LYFaceDetector.m */; };
-		9288741925F10936009B11FE /* FaceDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9288741725F10935009B11FE /* FaceDetection.m */; };
-		9288741D25F10AA7009B11FE /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9288741C25F10AA7009B11FE /* test.jpg */; };
 		92CAFE2B25EF254300B637B8 /* RTCCVPixelBuffer+Face.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAFE2225EF254300B637B8 /* RTCCVPixelBuffer+Face.m */; };
 		92CAFE2C25EF254300B637B8 /* RTCCameraVideoCapturer+Face.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAFE2325EF254300B637B8 /* RTCCameraVideoCapturer+Face.m */; };
 		92CAFE2D25EF254300B637B8 /* MyFaceFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CAFE2625EF254300B637B8 /* MyFaceFeature.m */; };
@@ -68,18 +60,7 @@
 		9286DF5125F0DDF300D2F05A /* OpenCVHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCVHelper.h; sourceTree = "<group>"; };
 		9286DF5B25F0E4CC00D2F05A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		9288740325F107FA009B11FE /* OpenGlHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGlHelper.m; sourceTree = "<group>"; };
-		9288740425F107FA009B11FE /* LYShaderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYShaderManager.m; sourceTree = "<group>"; };
-		9288740525F107FA009B11FE /* FaceDetectionShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FaceDetectionShader.fsh; sourceTree = "<group>"; };
-		9288740625F107FA009B11FE /* FaceTextureShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FaceTextureShader.fsh; sourceTree = "<group>"; };
 		9288740725F107FA009B11FE /* OpenGlHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGlHelper.h; sourceTree = "<group>"; };
-		9288740825F107FA009B11FE /* FaceTextureShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FaceTextureShader.vsh; sourceTree = "<group>"; };
-		9288740925F107FA009B11FE /* FaceDetectionShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FaceDetectionShader.vsh; sourceTree = "<group>"; };
-		9288740A25F107FA009B11FE /* LYShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYShaderManager.h; sourceTree = "<group>"; };
-		9288741325F10828009B11FE /* LYFaceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYFaceDetector.h; sourceTree = "<group>"; };
-		9288741425F10828009B11FE /* LYFaceDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYFaceDetector.m; sourceTree = "<group>"; };
-		9288741725F10935009B11FE /* FaceDetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceDetection.m; sourceTree = "<group>"; };
-		9288741825F10936009B11FE /* FaceDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceDetection.h; sourceTree = "<group>"; };
-		9288741C25F10AA7009B11FE /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		92BFCF2325EDCF8E00F67D2A /* WebRTC-Demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebRTC-Demo-Bridging-Header.h"; sourceTree = "<group>"; };
 		92CAFE2125EF254300B637B8 /* RTCCameraVideoCapturer+Face.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RTCCameraVideoCapturer+Face.h"; sourceTree = "<group>"; };
 		92CAFE2225EF254300B637B8 /* RTCCVPixelBuffer+Face.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RTCCVPixelBuffer+Face.m"; sourceTree = "<group>"; };
@@ -230,19 +211,8 @@
 		9288740225F107FA009B11FE /* OpenGL */ = {
 			isa = PBXGroup;
 			children = (
-				9288741C25F10AA7009B11FE /* test.jpg */,
 				9288740725F107FA009B11FE /* OpenGlHelper.h */,
 				9288740325F107FA009B11FE /* OpenGlHelper.m */,
-				9288741825F10936009B11FE /* FaceDetection.h */,
-				9288741725F10935009B11FE /* FaceDetection.m */,
-				9288741325F10828009B11FE /* LYFaceDetector.h */,
-				9288741425F10828009B11FE /* LYFaceDetector.m */,
-				9288740A25F107FA009B11FE /* LYShaderManager.h */,
-				9288740425F107FA009B11FE /* LYShaderManager.m */,
-				9288740525F107FA009B11FE /* FaceDetectionShader.fsh */,
-				9288740625F107FA009B11FE /* FaceTextureShader.fsh */,
-				9288740825F107FA009B11FE /* FaceTextureShader.vsh */,
-				9288740925F107FA009B11FE /* FaceDetectionShader.vsh */,
 			);
 			path = OpenGL;
 			sourceTree = "<group>";
@@ -364,13 +334,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9288740F25F107FA009B11FE /* FaceTextureShader.vsh in Resources */,
 				79262EEE20B0D6F800D576C1 /* Assets.xcassets in Resources */,
 				798FBA472200F681009F525E /* MainViewController.xib in Resources */,
-				9288741025F107FA009B11FE /* FaceDetectionShader.vsh in Resources */,
-				9288741D25F10AA7009B11FE /* test.jpg in Resources */,
-				9288740D25F107FA009B11FE /* FaceDetectionShader.fsh in Resources */,
-				9288740E25F107FA009B11FE /* FaceTextureShader.fsh in Resources */,
 				79177CAA20B2283F00BCD399 /* VideoViewController.xib in Resources */,
 				798FBA492200F9A9009F525E /* LaunchScreen.storyboard in Resources */,
 			);
@@ -443,19 +408,16 @@
 				79177CA820B2276400BCD399 /* VideoViewController.swift in Sources */,
 				79262EE720B0D6F600D576C1 /* AppDelegate.swift in Sources */,
 				92CAFE2B25EF254300B637B8 /* RTCCVPixelBuffer+Face.m in Sources */,
-				9288741925F10936009B11FE /* FaceDetection.m in Sources */,
 				795A4A26221E081A00F8BB03 /* SessionDescription.swift in Sources */,
 				9286DF5225F0DDF300D2F05A /* OpenCVHelper.mm in Sources */,
 				79177CA620B1F76E00BCD399 /* RTCStates.swift in Sources */,
 				92CAFE2C25EF254300B637B8 /* RTCCameraVideoCapturer+Face.m in Sources */,
 				92CAFE2E25EF254300B637B8 /* GPUImageBeautifyFilter.m in Sources */,
-				9288740C25F107FA009B11FE /* LYShaderManager.m in Sources */,
 				79177C9920B0DF2700BCD399 /* SignalingClient.swift in Sources */,
 				795A4A2A221E0FB100F8BB03 /* Message.swift in Sources */,
 				795A4A28221E0A1B00F8BB03 /* IceCandidate.swift in Sources */,
 				92CAFE2D25EF254300B637B8 /* MyFaceFeature.m in Sources */,
 				2F7EBC3622DCC6430015B46E /* WebSocketProvider.swift in Sources */,
-				9288741525F10828009B11FE /* LYFaceDetector.m in Sources */,
 				79177C9720B0DE7A00BCD399 /* WebRTCClient.swift in Sources */,
 				2F7EBC3822DCCB4E0015B46E /* StarscreamProvider.swift in Sources */,
 				9288740B25F107FA009B11FE /* OpenGlHelper.m in Sources */,
