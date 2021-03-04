@@ -13,6 +13,8 @@ protocol WebRTCClientDelegate: class {
     func webRTCClient(_ client: WebRTCClient, didDiscoverLocalCandidate candidate: RTCIceCandidate)
     func webRTCClient(_ client: WebRTCClient, didChangeConnectionState state: RTCIceConnectionState)
     func webRTCClient(_ client: WebRTCClient, didReceiveData data: Data)
+    func webRTCClient(_ client: WebRTCClient, didReceiveString string: String)
+
 }
 
 final class WebRTCClient: NSObject {
@@ -102,12 +104,22 @@ final class WebRTCClient: NSObject {
     
     // MARK: Media
     func startCaptureLocalVideo(renderer: RTCVideoRenderer) {
+        startCapture()
+        self.localVideoTrack?.add(renderer)
+    }
+    
+    func switchCamera(){
+        MyFaceFeature.share()?.currentCameraPosition = MyFaceFeature.share()?.currentCameraPosition == .front ? .back : .front
+        startCapture()
+    }
+    
+    func startCapture(){
         guard let capturer = self.videoCapturer as? RTCCameraVideoCapturer else {
             return
         }
-
+        capturer.stopCapture()
         guard
-            let frontCamera = (RTCCameraVideoCapturer.captureDevices().first { $0.position == .front }),
+            let frontCamera = RTCCameraVideoCapturer.captureDevices().count == 0 ? nil : RTCCameraVideoCapturer.captureDevices().count == 1 ? (RTCCameraVideoCapturer.captureDevices().first { $0.position == .front }) : (RTCCameraVideoCapturer.captureDevices().first { $0.position == MyFaceFeature.share()?.currentCameraPosition }),
         
             // choose highest res
             let format = (RTCCameraVideoCapturer.supportedFormats(for: frontCamera).sorted { (f1, f2) -> Bool in
@@ -124,8 +136,15 @@ final class WebRTCClient: NSObject {
         capturer.startCapture(with: frontCamera,
                               format: format,
                               fps: Int(fps.maxFrameRate))
-        
-        self.localVideoTrack?.add(renderer)
+    }
+    
+    func stopCapture(renderer: RTCVideoRenderer, toRenderer: RTCVideoRenderer){
+        guard let capturer = self.videoCapturer as? RTCCameraVideoCapturer else {
+            return
+        }
+        capturer.stopCapture()
+        self.localVideoTrack?.remove(renderer)
+        self.remoteVideoTrack?.remove(toRenderer)
     }
     
     func renderRemoteVideo(to renderer: RTCVideoRenderer) {

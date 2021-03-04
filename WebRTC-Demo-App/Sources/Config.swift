@@ -9,7 +9,9 @@
 import Foundation
 
 // Set this to the machine's address which runs the signaling server
-fileprivate let defaultSignalingServerUrl = URL(string: "ws://10.0.0.15:8080")!
+//fileprivate let defaultSignalingServerUrl = URL(string: "wss://13.112.214.196:8443/player")!
+fileprivate let defaultSignalingServerUrl = URL(string: "ws://172.20.10.5:5443/helloworld")!
+//fileprivate let defaultSignalingServerUrl = URL(string: "wss://183.180.128.220:8443/player")!
 
 // We use Google's public stun servers. For production apps you should deploy your own stun/turn servers.
 fileprivate let defaultIceServers = ["stun:stun.l.google.com:19302",

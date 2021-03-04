@@ -27,20 +27,33 @@ class NativeWebSocket: NSObject, WebSocketProvider {
         self.socket = socket
         self.readMessage()
     }
+    
+//    func disconnect() {
+//        self.socket?.cancel(with: .goingAway, reason: nil)
+//    }
 
+    func send(string: String) {
+//        print("send string : \(string)")
+        self.socket?.send(.string(string)) { error in
+//            print(error as Any)
+        }
+    }
+    
     func send(data: Data) {
         self.socket?.send(.data(data)) { _ in }
     }
     
     private func readMessage() {
         self.socket?.receive { [weak self] message in
+            print("readMessage is \(message)")
             guard let self = self else { return }
-            
             switch message {
             case .success(.data(let data)):
                 self.delegate?.webSocket(self, didReceiveData: data)
                 self.readMessage()
-                
+            case .success(.string(let data)):
+                self.delegate?.webSocket(self, didReceiveString: data)
+                self.readMessage()
             case .success:
                 debugPrint("Warning: Expected to receive data format but received a string. Check the websocket server config.")
                 self.readMessage()
@@ -51,7 +64,7 @@ class NativeWebSocket: NSObject, WebSocketProvider {
         }
     }
     
-    private func disconnect() {
+    public func disconnect() {
         self.socket?.cancel()
         self.socket = nil
         self.delegate?.webSocketDidDisconnect(self)
@@ -66,5 +79,12 @@ extension NativeWebSocket: URLSessionWebSocketDelegate, URLSessionDelegate  {
     
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
         self.disconnect()
+    }
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        if (challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust){
+            let credntial : URLCredential = URLCredential.init(trust: challenge.protectionSpace.serverTrust!)
+            completionHandler(.useCredential,credntial)
+        }
     }
 }

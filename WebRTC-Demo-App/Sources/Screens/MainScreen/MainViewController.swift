@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
 
     private let signalClient: SignalingClient
     private let webRTCClient: WebRTCClient
-    private lazy var videoViewController = VideoViewController(webRTCClient: self.webRTCClient)
+    private var videoViewController : VideoViewController?;
     
     @IBOutlet private weak var speakerButton: UIButton?
     @IBOutlet private weak var signalingStatusLabel: UILabel?
@@ -116,14 +116,15 @@ class MainViewController: UIViewController {
     @IBAction private func offerDidTap(_ sender: UIButton) {
         self.webRTCClient.offer { (sdp) in
             self.hasLocalSdp = true
-            self.signalClient.send(sdp: sdp)
+//            self.signalClient.send(sdp: sdp)
+            self.signalClient.send(sdp: sdp, id: "start" ,userId: 2, videourl: "rtsp://admin:123456@183.180.128.220:554/cam1/onvif-h264" , privacies: "")
         }
     }
     
     @IBAction private func answerDidTap(_ sender: UIButton) {
         self.webRTCClient.answer { (localSdp) in
             self.hasLocalSdp = true
-            self.signalClient.send(sdp: localSdp)
+//            self.signalClient.send(sdp: localSdp)
         }
     }
     
@@ -138,7 +139,8 @@ class MainViewController: UIViewController {
     }
     
     @IBAction private func videoDidTap(_ sender: UIButton) {
-        self.present(videoViewController, animated: true, completion: nil)
+        videoViewController = VideoViewController(webRTCClient: self.webRTCClient)
+        self.present(videoViewController!, animated: true, completion: nil)
     }
     
     @IBAction private func muteDidTap(_ sender: UIButton) {
@@ -195,9 +197,11 @@ extension MainViewController: SignalClientDelegate {
 extension MainViewController: WebRTCClientDelegate {
     
     func webRTCClient(_ client: WebRTCClient, didDiscoverLocalCandidate candidate: RTCIceCandidate) {
-        print("discovered local candidate")
+        print("discovered local candidate.sdp : \(candidate.sdp)")
+        print("discovered local candidate.serverUrl : \(candidate.serverUrl ?? "")")
+
         self.localCandidateCount += 1
-        self.signalClient.send(candidate: candidate)
+        self.signalClient.sendIceCandidateString(candidate: candidate)
     }
     
     func webRTCClient(_ client: WebRTCClient, didChangeConnectionState state: RTCIceConnectionState) {
@@ -223,6 +227,15 @@ extension MainViewController: WebRTCClientDelegate {
     func webRTCClient(_ client: WebRTCClient, didReceiveData data: Data) {
         DispatchQueue.main.async {
             let message = String(data: data, encoding: .utf8) ?? "(Binary: \(data.count) bytes)"
+            let alert = UIAlertController(title: "Message from WebRTC", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func webRTCClient(_ client: WebRTCClient, didReceiveString string: String) {
+        DispatchQueue.main.async {
+            let message = string
             let alert = UIAlertController(title: "Message from WebRTC", message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)

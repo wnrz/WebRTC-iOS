@@ -23,8 +23,16 @@ class StarscreamWebSocket: WebSocketProvider {
         self.socket.connect()
     }
     
+    func disconnect() {
+        self.socket.disconnect()
+    }
+    
     func send(data: Data) {
         self.socket.write(data: data)
+    }
+    
+    func send(string: String) {
+        self.socket.write(string: string)
     }
 }
 
@@ -46,4 +54,8 @@ extension StarscreamWebSocket: Starscream.WebSocketDelegate {
     }
     
     
+    func webSocket(_ webSocket: WebSocketProvider, didReceiveString string: String){
+        self.delegate?.webSocket(self, didReceiveString: string)
+
+    }
 }

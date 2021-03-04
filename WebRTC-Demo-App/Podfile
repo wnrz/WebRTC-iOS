@@ -3,4 +3,9 @@ platform :ios, '10.0'
 
 target 'WebRTC-Demo' do
     pod 'GoogleWebRTC', '~> 1.1'
+    pod 'Starscream', '~>3.1.1'
+    pod 'GPUImage', :path => '../GPUImage'
+    pod 'OpenCV'
+#    pod 'GPUImageBeautifyFilter'
+
 end

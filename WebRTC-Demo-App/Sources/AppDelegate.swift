@@ -47,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             webSocketProvider = NativeWebSocket(url: self.config.signalingServerUrl)
         } else {
             webSocketProvider = StarscreamWebSocket(url: self.config.signalingServerUrl)
+            
         }
         
         return SignalingClient(webSocket: webSocketProvider)
