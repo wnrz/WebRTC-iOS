@@ -86,7 +86,7 @@
         }
         RTC_OBJC_TYPE(RTCCVPixelBuffer) *rtcPixelBuffer =
         [[RTC_OBJC_TYPE(RTCCVPixelBuffer) alloc] initWithPixelBuffer:pixelBuffer];
-        CVBufferRelease(pixelBuffer);
+//        CVBufferRelease(pixelBuffer);
 
         RTC_OBJC_TYPE(RTCVideoFrame) *videoFrame =
         [[RTC_OBJC_TYPE(RTCVideoFrame) alloc] initWithBuffer:rtcPixelBuffer

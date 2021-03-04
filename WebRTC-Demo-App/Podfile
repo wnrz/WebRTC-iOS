@@ -6,6 +6,7 @@ target 'WebRTC-Demo' do
     pod 'Starscream', '~>3.1.1'
     pod 'GPUImage', :path => '../GPUImage'
     pod 'OpenCV'
+    pod 'CocoaLumberjack/Swift'
 #    pod 'GPUImageBeautifyFilter'
 
 end

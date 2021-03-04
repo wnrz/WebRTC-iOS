@@ -1,10 +1,14 @@
 PODS:
+  - CocoaLumberjack/Core (3.6.2)
+  - CocoaLumberjack/Swift (3.6.2):
+    - CocoaLumberjack/Core
   - GoogleWebRTC (1.1.31999)
   - GPUImage (0.1.7)
   - OpenCV (4.1.0)
   - Starscream (3.1.1)
 
 DEPENDENCIES:
+  - CocoaLumberjack/Swift
   - GoogleWebRTC (~> 1.1)
   - GPUImage (from `../GPUImage`)
   - OpenCV
@@ -12,6 +16,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - CocoaLumberjack
     - GoogleWebRTC
     - OpenCV
     - Starscream
@@ -21,11 +26,12 @@ EXTERNAL SOURCES:
     :path: "../GPUImage"
 
 SPEC CHECKSUMS:
+  CocoaLumberjack: bd155f2dd06c0e0b03f876f7a3ee55693122ec94
   GoogleWebRTC: b39a78c4f5cc6b0323415b9233db03a2faa7b0f0
   GPUImage: bd7e201b9aa91e85f401ed7a6d9867a07a404693
   OpenCV: 52cd4d72ff29e2be83421477aec5447320b7fb19
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
 
-PODFILE CHECKSUM: 2496e1fcac1e6ba77310d9414427483a76de5009
+PODFILE CHECKSUM: 77846a6ec45eb499e0499431c8eb252a9415a50e
 
 COCOAPODS: 1.9.3
